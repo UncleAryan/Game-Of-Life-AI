@@ -19,23 +19,19 @@ public class GraphView : MonoBehaviour {
                 cellView.init(cell);
                 cellViews[cell.xIndex, cell.yIndex] = cellView;
                 if (cell.cellState == CellState.DEAD) {
-                    cellView.colorNode(deadColor);
+                    cellView.colorCell(deadColor);
                 }
                 else {
-                    cellView.colorNode(aliveColor);
+                    cellView.colorCell(aliveColor);
                 }
             }
         }
     }
 
-    public void colorNodes(List<Cell> cells, Color color) {
-        foreach (Cell cell in cells) {
-            if (cells != null) {
-                CellView cellView = cellViews[cell.xIndex, cell.yIndex];
-                if (cellView != null) {
-                    cellView.colorNode(color);
-                }
-            }
+    public void colorCell(Cell cell, Color color) {
+        CellView cellView = cellViews[cell.xIndex, cell.yIndex];
+        if (cellView != null) {
+            cellView.colorCell(color);
         }
     }
 }

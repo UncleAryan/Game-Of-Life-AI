@@ -13,14 +13,14 @@ public class CellView: MonoBehaviour {
         }
     }
 
-    private void colorNode(Color color, GameObject gameObject) {
+    private void colorCell(Color color, GameObject gameObject) {
         if (gameObject != null) {
             Renderer gameObjectRenderer = gameObject.GetComponent<Renderer>();
             gameObjectRenderer.material.color = color;
         }
     }
 
-    public void colorNode(Color color) {
-        colorNode(color, tile);
+    public void colorCell(Color color) {
+        colorCell(color, tile);
     }
 }

@@ -9,7 +9,7 @@ public class MapData : MonoBehaviour {
 
         for(int r = 0; r < row; r++) {
             for(int c = 0; c <  col; c++) {
-                map[r, c] = 1; // alive at start
+                map[r, c] = (int)Random.Range(0, 2); // alive at start
             }
         }
 

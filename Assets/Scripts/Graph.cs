@@ -42,22 +42,40 @@ public class Graph : MonoBehaviour {
         }
     }
 
+    public int getNumberOfAliveCells() {
+        int alive = 0;
+        foreach (Cell cell in cells) {
+            if (cell.cellState == CellState.ALIVE) {
+                alive++;
+            }
+        }
+        return alive;
+    }
+
     public bool isInRange(int x, int y) {
         return (x >= 0 && x < mapWidth && y >= 0 && y < mapHeight);
     }
 
-    List<Cell> getNeighbors(int x, int y, Cell[,] nodeArray) {
-        List<Cell> neighborNodes = new List<Cell>();
+    private List<Cell> getNeighbors(int x, int y, Cell[,] cellArray) {
+        List<Cell> neighborCells = new List<Cell>();
         foreach (Vector2 d in allDirections) {
             int newX = x + (int)d.x; // new x for the direction we are looking in
             int newY = y + (int)d.y; // new y for the direction we are looking in
 
             if (isInRange(newX, newY) &&
-                nodeArray[newX, newY] != null &&
-                nodeArray[newX, newY].cellState == CellState.ALIVE) {
-                neighborNodes.Add(nodeArray[newX, newY]);
+                cellArray[newX, newY] != null &&
+                cellArray[newX, newY].cellState == CellState.ALIVE) {
+                neighborCells.Add(cellArray[newX, newY]);
             }
         }
-        return neighborNodes;
+        return neighborCells;
+    }
+
+    public void updateNeighbors() {
+        for (int y = 0; y < mapHeight; y++) {
+            for (int x = 0; x < mapWidth; x++) {
+                cells[x, y].neighbors = getNeighbors(x, y, cells);
+            }
+        }
     }
 }
