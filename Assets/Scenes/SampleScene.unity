@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 172158500}
   - component: {fileID: 172158499}
+  - component: {fileID: 172158501}
   m_Layer: 0
   m_Name: Graph
   m_TagString: Untagged
@@ -148,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a01356cd16c6c4dabac5e269c01cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: -1
-  mapHeight: -1
+  mapWidth: 20
+  mapHeight: 20
 --- !u!4 &172158500
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +166,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &172158501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172158498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03988f9a6279aab44acc225a01107c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellViewPrefab: {fileID: 1608545192059127998, guid: 1d5860cea7f9d8b4fa3d113e7a3dc0d9, type: 3}
+  aliveColor: {r: 1, g: 1, b: 1, a: 1}
+  deadColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,8 +267,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 9, y: 40, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,8 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f83d330c03e024ab53c135d60f025e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  row: 0
-  col: 0
+  row: 20
+  col: 20
 --- !u!4 &1118712377
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +485,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1925118567
+--- !u!1 &1747115450
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -477,37 +493,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1925118569}
-  - component: {fileID: 1925118568}
+  - component: {fileID: 1747115452}
+  - component: {fileID: 1747115451}
   m_Layer: 0
-  m_Name: GraphView
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1925118568
+--- !u!114 &1747115451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925118567}
+  m_GameObject: {fileID: 1747115450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03988f9a6279aab44acc225a01107c91, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e5a8bf3a1321b94487176522527b0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellViewPrefab: {fileID: 1608545192059127998, guid: 1d5860cea7f9d8b4fa3d113e7a3dc0d9, type: 3}
-  aliveColor: {r: 1, g: 1, b: 1, a: 1}
-  deadColor: {r: 0, g: 0, b: 0, a: 1}
---- !u!4 &1925118569
+  mapData: {fileID: 1118712376}
+  graph: {fileID: 172158499}
+--- !u!4 &1747115452
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925118567}
+  m_GameObject: {fileID: 1747115450}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -524,4 +539,4 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 1118712377}
   - {fileID: 172158500}
-  - {fileID: 1925118569}
+  - {fileID: 1747115452}
