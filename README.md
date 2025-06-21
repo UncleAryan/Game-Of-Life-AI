@@ -1,0 +1,1 @@
+This repository contains a 3D implementation of Conway's Game of Life using Unity 3D. The Game of Life is a cellular automaton devised by mathematician John Horton Conway in 1970. This simulation demonstrates how simple rules can create complex, emergent behaviors.
